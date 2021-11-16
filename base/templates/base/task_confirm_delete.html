@@ -1,0 +1,61 @@
+<style>
+     html{
+            background-color: rgb(137, 125, 221);
+            color: white;
+        }
+        a{
+            text-decoration: none;
+            color: rgb(20, 0, 58);
+
+
+        }
+        input{
+            padding: 0.5rem;
+            border-radius: 5px;
+            border: none;
+        }
+
+textarea:focus, input:focus{
+outline: none;
+}
+input:focus{
+    background-color: rgb(198, 165, 230);
+}
+input:hover{
+    background-color:rgb(193, 162, 223) ;
+    color: white;
+}
+
+.delete-confirm{
+    min-height: 60vh;
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+@media (max-width:550px) {
+        .delete-confirm{
+            
+        width: 95%;
+        margin: auto;
+        }
+        input{
+            padding: 1rem;
+        }
+    }
+    
+</style>
+
+<div class="delete-confirm">
+
+    <a href="{% url 'tasks' %}">Go back</a>
+
+
+    <form method="POST">
+        {%csrf_token%}
+        <p>are you sure you wanna delete the task "{{tasks}}"</p>
+        <input type="submit" value="Delete">
+    </form>
+</div>

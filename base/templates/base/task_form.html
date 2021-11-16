@@ -1,0 +1,67 @@
+<style>
+     html{
+            background-color: rgb(137, 125, 221);
+            color: white;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+    .create-task-form{
+        padding-top: 5vh;
+        min-height: 40vh;
+        width: 80%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .some{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    input{
+            padding: 0.5rem;
+            border-radius: 5px;
+            border: none;
+        }
+
+
+textarea:focus, input:focus{
+outline: none;
+}
+input:focus{
+    background-color: rgb(198, 165, 230);
+}
+input:hover{
+    background-color:rgb(193, 162, 223) ;
+    color: white;
+}
+
+    @media (max-width:550px){
+        h3{
+            font-size: 1rem;
+
+        }
+  input{
+      padding: 0.5rem;
+  }
+    }
+    
+</style>
+
+<div class="create-task-form">
+<div class="some">
+    <H3>FORM</H3>
+    <a href="{% url 'tasks' %}">Go back</a>
+</div>
+    <form method="POST" action="">
+        {%csrf_token%}
+        {{form.as_p}}
+
+        <input type="submit" value="submit">
+    </form>
+</div>

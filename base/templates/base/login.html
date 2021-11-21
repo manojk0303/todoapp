@@ -1,56 +1,97 @@
-<style>
-     html{
-            background-color: rgb(137, 125, 221);
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <style>
+         html{
+                background-color: rgb(137, 125, 221);
+                color: white;
+            }
+            a{
+                text-decoration: none;
+                color: rgb(20, 0, 58);
+            }
+            input{
+
+                padding: 0.5rem;
+                border-radius: 5px;
+                border: none;
+            }
+
+        textarea:focus, input:focus{
+        outline: none;
+        }
+        .sub{
+
+            background-color:white;
+            color:rgb(137, 125, 221);
+        }
+        .sub:hover{
+            background:white;
+            color:black;
+        }
+        input:focus{
+            background-color: rgb(198, 165, 230);
+        }
+        input:hover{
+            background-color:rgb(193, 162, 223) ;
             color: white;
         }
-        a{
-            text-decoration: none;
-            color: rgb(20, 0, 58);
-        }
-        input{
-            padding: 0.5rem;
-            border-radius: 5px;
-            border: none;
-        }
 
-textarea:focus, input:focus{
-outline: none;
-}
-input:focus{
-    background-color: rgb(198, 165, 230);
-}
-input:hover{
-    background-color:rgb(193, 162, 223) ;
-    color: white;
-}
+            .login{
+                min-height: 60vh;
+                width: 80%;
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
 
-    .login{
-        min-height: 60vh;
-        width: 80%;
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-    }
-    @media (max-width:550px) {
-        .login{
-        width: 95%;
-        margin: auto;
-        }
-        input{
-            padding: 0.5rem;
-        }
-    }
-    
-</style>
+            }
 
+            .sub{
+                background-color:rgb(193, 162, 223);
+                color:white;
+            }
+
+            @media (max-width:381px) {
+                .main{
+                    margin-top:3rem;
+                    height:100%;
+                }
+                .login{
+
+                    height:70%;
+                    width:100%;
+                    margin:auto;
+                }
+                form{
+
+                    width:95%;
+                    margin:auto;
+                }
+                .frm input{
+                    padding: 0.5rem;
+                    margin-top:1rem;
+                }
+                .pp{
+                    margin-top:3rem;
+                }
+
+            }
+
+
+    </style>
+<div class='main'>
 <div class="login">
     <h1>Login</h1>
-    <form method="POST">
+    <form method="POST" class="frm">
         {%csrf_token%}
+        <div class="a">
         {{form.as_p}}
-        <input type="submit" value="login">
+        </div>
+        <input class="sub" type="submit" value="login">
     </form>
-    <p>don't have an account <a href="{% url 'register' %}">Register</a></p>
+
+    <p class="pp">don't have an account <a href="{% url 'register' %}">Register</a></p>
+ </div>
 </div>
